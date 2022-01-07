@@ -1,15 +1,33 @@
 // apiKeyForSpoonacular=62e75e598b60470591e3fd45554b92ca
-// apiKeyForCocktailDb=1 
+// apiKeyForCocktailDb=1
+var textInputEl = $("#text-input");
+
+$(document).on("submit", function (event) {
+    event.preventDefault();
+
+    var ingredients = textInputEl.val();
+
+    getRecipe(ingredients);
+});
+
+
+$("#search-btn").on("click", function (event){
+    event.preventDefault();
+
+    var ingredients = textInputEl.val();
+
+    getRecipe(ingredients);
+});
 
 
 
- function getRecipe() {
-    var apiUrl = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=62e75e598b60470591e3fd45554b92ca&ingredients=apples,+flour,+sugar&number=2";
+ function getRecipe(ingredients) {
+    var apiUrl = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=62e75e598b60470591e3fd45554b92ca&ingredients=" + ingredients;
       fetch(apiUrl)
         .then(function (response){
             if (response.ok) {
                 response.json().then(function(data) {
-                    console.log(data);
+                    console.log(data);                   
 
                     displayRecipe(data);
                     
@@ -34,10 +52,14 @@ function getDrink() {
                     response.json().then(function(data){
                         console.log(data);
                         
-                        var cocktail = data.drinks[0].strDrink + "\n"  
-                        + data.drinks[0].strIngredient1; + "\n";
-                        
-                       
+                        var cocktail = data.drinks[0].strDrink + "\n"
+                        + data.drinks[0].strDrinkThumb + "\n"  
+                        + data.drinks[0].strIngredient1 + "\n"
+                        + data.drinks[0].strIngredient2 + "\n"
+                        + data.drinks[0].strIngredient3 + "\n"
+                        + data.drinks[0].strIngredient4 + "\n"
+                        + data.drinks[0].strIngredient5 + "\n"
+                        + data.drinks[0].strInstructions + "\n";                                             
                         
                         console.log(cocktail);
                     })
@@ -46,7 +68,7 @@ function getDrink() {
 }
 
 
- getRecipe();
+getRecipe();
 getDrink();
 
 

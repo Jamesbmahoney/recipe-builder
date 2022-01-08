@@ -16,7 +16,7 @@
         <div class="container column">
           <div class="navbar-brand">
             <a class="navbar-item">
-              <img src="assets/dropshadowpacman.png" alt="pacman gobbling goodies">
+              <img src="assets/images/dropshadowpacman.png" alt="pacman gobbling goodies">
             </a>
             <span class="navbar-burger" data-target="navbarMenuHeroC">
               <span></span>
@@ -27,20 +27,10 @@
           <div id="navbarMenuHeroC" class="navbar-menu">
             <div class="navbar-end">
               <a class="navbar-item is-active">
-                Fridge Food
+                <a href="#food">Fridge Food</a>
               </a>
               <a class="navbar-item">
-                Fridge Drink
-              </a>
-              <a class="navbar-item">
-                Our Favorites
-              </a>
-              <span class="navbar-item">
-                <a class="button is-success is-inverted">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                  <span>Download</span>
+                <a href="#drink">Fridge Drink</a>
                 </a>
               </span>
             </div>
@@ -62,7 +52,7 @@
     </div>
 
 
-    <section class="box is-flex-direction-column ">
+    <section class="box is-flex-direction-column container ">
       <div class="content">
         <h1>About Fridge Raider</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi a, voluptate deserunt maxime veniam qui quis
@@ -91,24 +81,25 @@
     </section>
 
     <main>
-      <div>
+      <div id="food">
+        <button id="search-btn"></button>
 
       </div>
 
-      <div>
-
+      <div id="drink">
+        <button id="random-btn"></button>
 
       </div>
     </main>
+    
 
     <!-- Hero footer: will stick at the bottom -->
     <div class="hero-foot">
       <nav class="tabs is-boxed is-fullwidth">
         <div class="container">
-          <ul>
-            <li class="is-active"><a>Overview</a></li>
-            <li><a>Jame's Github</a></li>
-            <li><a>Russell's Github</a></li>
+          <ul>    
+            <li class="is-active"><a href="https://github.com/Jamesbmahoney">Jame's Github</a></li>
+            <li class="is-active"><a href="https://github.com/RussellShea">Russell's Github</a></li>
           </ul>
         </div>
       </nav>

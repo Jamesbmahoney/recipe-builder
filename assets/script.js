@@ -101,16 +101,24 @@ function getDrink() {
                 response.json().then(function (data) {
                     console.log(data);
 
-                    var cocktail = data.drinks[0].strDrink + "\n"
-                        + data.drinks[0].strDrinkThumb + "\n"
-                        + data.drinks[0].strIngredient1 + "\n"
+                    var cocktailName = data.drinks[0].strDrink;
+                    var cocktailThumb = data.drinks[0].strDrinkThumb;
+                    var cocktailIngr = data.drinks[0].strIngredient1 + "\n"
                         + data.drinks[0].strIngredient2 + "\n"
                         + data.drinks[0].strIngredient3 + "\n"
                         + data.drinks[0].strIngredient4 + "\n"
-                        + data.drinks[0].strIngredient5 + "\n"
-                        + data.drinks[0].strInstructions + "\n";
+                        + data.drinks[0].strIngredient5 + "\n";
+                    var cocktailInst = data.drinks[0].strInstructions;
 
-                    console.log(cocktail);
+                    console.log(cocktailName, cocktailThumb, cocktailIngr, cocktailInst);
+
+                    
+
+                    document.getElementById("cocktail-name").textContent = cocktailName;
+                    document.getElementById("cocktail-img").src = cocktailThumb;
+                    document.getElementById("cocktail-ingr").textContent = cocktailIngr;
+                    document.getElementById("cocktail-inst").textContent = cocktailInst;
+                    
                 })
             }
         })

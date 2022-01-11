@@ -84,7 +84,7 @@ function displayRecipe(recipeInfo) {
                 .then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
-                            console.log(data);                        
+                            console.log(data);
 
                         })
                     }
@@ -112,13 +112,11 @@ function getDrink() {
 
                     console.log(cocktailName, cocktailThumb, cocktailIngr, cocktailInst);
 
-                    
-
                     document.getElementById("cocktail-name").textContent = cocktailName;
                     document.getElementById("cocktail-img").src = cocktailThumb;
                     document.getElementById("cocktail-ingr").textContent = cocktailIngr;
                     document.getElementById("cocktail-inst").textContent = cocktailInst;
-                    
+
                 })
             }
         })

@@ -3,22 +3,45 @@
 var textInputEl = $("#text-input");
 var searchListEl = $("#search-list");
 var recipeContentEl = $("#recipe-content");
+var clearBtnEl = $("#clear-btn");
 
 var recipeList = [];
-var recipeInfo = "";
-var recipeInfo = {
-    name : recipeName,
-    img : recipeImage,
-    id : recipeId
-};
+
+initList();
+clearButton();
+
+$(document).on("submit", function (event) {
+    event.preventDefault();
+
+    var ingredients = textInputEl.val();
+
+    getRecipe(ingredients);
+    recipeHistory(ingredients);
+});
 
 $("#search-btn").on("click", function (event) {
     event.preventDefault();
 
     var ingredients = textInputEl.val();
-    
+
     getRecipe(ingredients);
-    recipeHistory(recipeInfo);
+    recipeHistory(ingredients);
+});
+
+$("#clear-btn").on("click", function (event) {
+    recipeList = [];
+    listArray();
+
+    $(this).addClass("hide");
+})
+
+searchListEl.on("click", "li.card", function (event) {
+    event.preventDefault();
+
+    var value = $(this).data("value");
+
+    getRecipe(value);
+    recipeHistory(value);
 });
 
 
@@ -61,9 +84,7 @@ function displayRecipe(recipeInfo) {
                 .then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
-                            console.log(data);
-
-                            var recipeFull = recipeId.recipe;
+                            console.log(data);                        
 
                         })
                     }
@@ -95,28 +116,40 @@ function getDrink() {
         })
 }
 
-function recipeHistory(recipeInfo) {
-    if (recipeInfo) {
-        var removeIndex = recipeList.indexOf(recipeInfo);
-        recipeList.splice(removeIndex, 1);
+function recipeHistory(ingredients) {
+    if (ingredients) {
+        if (recipeList.indexOf(ingredients) === -1) {
+            recipeList.push(ingredients);
 
-        recipeList.push(recipeInfo);
+            listArray();
+            clearBtnEl.removeClass("hide");
+            recipeContentEl.removeClass("hide");
+        } else {
+            var removeIndex = recipeList.indexOf(ingredients);
+            recipeList.splice(removeIndex, 1);
 
-        listArray();
+            recipeList.push(ingredients);
+
+            listArray();
+            clearBtnEl.removeClass("hide");
+            recipeContentEl.removeClass("hide");
+        }
     }
 
-    function listArray() {
-        searchListEl.empty();
-        recipeList.forEach(function (recipe) {
-            var recipeObj = $('<li class="list-group-item city-btn bg-light bg-gradient border rounded justify-content-start mx-1 my-1">');
-            recipeObj.attr("data-value", recipe);
-            recipeObj.text(recipe);
-            searchListEl.prepend(recipeObj);
-        });
-
-        localStorage.setItem("recipes", JSON.stringify(recipeList));
-    }
 }
+
+function listArray() {
+    searchListEl.empty();
+    recipeList.forEach(function (recipe) {
+        var recipeObj = $('<li class="card">');
+        recipeObj.attr("data-value", recipe);
+        recipeObj.text(recipe);
+        searchListEl.prepend(recipeObj);
+    });
+
+    localStorage.setItem("recipes", JSON.stringify(recipeList));
+}
+
 
 function initList() {
     if (localStorage.getItem("recipes")) {
@@ -126,9 +159,14 @@ function initList() {
         listArray();
 
         if (recipeList.length !== 0) {
-            getRecipeName(recipeList[lastIndex]);
-            weatherContentEl.removeClass("hide");
-
+            getRecipe(recipeList[lastIndex]);
+            recipeContentEl.removeClass("hide");
         }
+    }
+}
+
+function clearButton() {
+    if (searchListEl.text() !== "") {
+        clearBtnEl.removeClass("hide");
     }
 }

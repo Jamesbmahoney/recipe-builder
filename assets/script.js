@@ -44,21 +44,18 @@ searchListEl.on("click", "li.card", function (event) {
     recipeHistory(value);
 });
 
-
 $("#random-btn").on("click", function (event) {
     event.preventDefault();
 
     getDrink();
 });
 
-
 function getRecipe(ingredients) {
     var apiUrl = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=19faeb981d79466fa2688c9703593efa&ingredients=" + ingredients + "&ranking=1&ignorePantry=true&number=1&includeIngredients";
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
+                response.json().then(function (data) {                 
 
                     displayRecipe(data);
                 })
@@ -75,11 +72,9 @@ function getRecipe(ingredients) {
                     fetch(apiUrl)
                         .then(function (response) {
                             if (response.ok) {
-                                response.json().then(function (data) {
-                                    console.log(data);
+                                response.json().then(function (data) {                                    
 
-                                    var recipeUrl = data.sourceUrl;
-                                    console.log(recipeImage, recipeName, recipeUrl);
+                                    var recipeUrl = data.sourceUrl;                                    
 
                                     document.getElementById("recipe-name").textContent = recipeName;
                                     document.getElementById("recipe-img").src = recipeImage;
@@ -102,8 +97,7 @@ function getDrink() {
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
+                response.json().then(function (data) {                    
 
                     var cocktailName = data.drinks[0].strDrink;
                     var cocktailThumb = data.drinks[0].strDrinkThumb;

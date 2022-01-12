@@ -16,8 +16,8 @@
 <body>
   <section class="hero is-warning is-fullheight ">
     <!-- Hero head: will stick at the top -->
-    <div class="hero-head">
-      <header class="navbar ">
+    <div class="hero-head mb-6">
+      <header class="navbar has-background-warning is-fixed-top ">
         <div class="container column">
           <div class="navbar-brand">
             <a class="navbar-item">
@@ -30,13 +30,16 @@
             </span>
           </div>
           <div id="navbarMenuHeroC" class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item is-active">
-                <a href="#food">Fridge Food</a>
+            <div class="navbar-end navbar-item">
+              <a>
+                <a href="#food"><strong>Solids</strong></a>
               </a>
               <a class="navbar-item">
-                <a href="#drink">Fridge Drink</a>
-                </a>                
+                <a href="#drink"><strong>Liquids</strong></a>
+                </a> 
+                <a class="navbar-item">
+                  <a href="#footer"><strong>Github</strong></a>
+                </a>
               </span>              
             </div>
           </div>
@@ -47,46 +50,36 @@
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
       <div class="container has-text-centered">
-        <p class="title">
-          Fridge Raider
+        <p class="title is-1 is-danger">
+          <strong>Fridge Raider</strong>
         </p>
         <p class="subtitle">
-          Because takeout was so 2021...
+          Because Takeout Was So 2021...
         </p>
+        <img src="assets/images/dropshadowpacman.png" alt="Fridge Raider Logo">
       </div>
     </div>
 
 
-    <section class="box is-flex-direction-column container ">
+    <section class="box is-danger is-flex-direction-column container has-background-light">
       <div class="content">
-        <h1>About Fridge Raider</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi a, voluptate deserunt maxime veniam qui quis
-          eveniet, nihil, dolores soluta sed minus veritatis eos! Temporibus ratione consequuntur harum beatae unde
-          vitae totam consequatur fuga itaque ad enim voluptate libero natus ullam vero ab blanditiis, molestiae
-          laboriosam? Mollitia id ratione, sed provident inventore voluptatibus natus obcaecati nobis reiciendis minus
-          nisi, corporis suscipit! Asperiores adipisci illum perferendis quae deserunt, autem minus, error consectetur
-          earum obcaecati harum sapiente voluptatem tenetur aspernatur, dolorum expedita cupiditate fugiat atque dicta
-          porro. Amet velit eligendi mollitia ullam voluptate quis maxime vero quod veniam aliquid, illum, dolorem
-          inventore ipsam debitis natus adipisci nesciunt ad tenetur fugit ea totam ab iusto, voluptatum enim! Enim,
-          cum. Incidunt recusandae, hic repudiandae iusto nam laboriosam repellat dolor quos culpa ipsa magnam saepe
-          perspiciatis quia at dolorem magni repellendus delectus reiciendis velit cum voluptates suscipit enim. Nemo
-          consectetur velit eligendi voluptatem sunt doloremque officia vel quos laudantium ducimus impedit porro, ipsum
-          possimus minima veritatis maiores, provident accusamus mollitia distinctio. Voluptate et sint adipisci,
-          dolorem, vel, in excepturi distinctio praesentium id omnis obcaecati nemo eos natus labore saepe. Ratione
-          velit sed sint eveniet pariatur corrupti placeat doloremque ea totam exercitationem consequatur, doloribus
-          odio vel nisi hic libero ipsa autem repellendus animi asperiores. Neque totam a vitae autem rerum error dicta
-          provident, ut nemo, suscipit at commodi cum eaque recusandae quis, omnis optio porro minima repellendus ipsum
-          sint et numquam possimus! Culpa sint quas eos totam esse, libero obcaecati atque ipsam ad. Enim temporibus,
-          aliquid dolorum ipsa harum ea minus facere et culpa quod dignissimos explicabo iure, corrupti tempora aut
-          rerum! Suscipit molestiae numquam asperiores voluptatibus laborum, tenetur esse fugit distinctio odio magni
-          neque nihil labore consequatur cumque id? Consequatur nulla, ut architecto nemo magni tempore culpa atque
-          veritatis maiores voluptates! Eligendi cum numquam facere?</p>
+        <h1>We have all been there...</h1>
+        <p>
+            Picture this. You are starving enough that your roommate starts to looks appetizing, but you have already spent so much money on takeout that you could make a mosaic out of fast food wrappers. This doesn't put your mind at ease or fill your stomach. In fact you are even hungrier and even a bit on edge now. "WHY MUST I BE SO HUNGRY AND SO BROKE!?", you scream out loud. You sigh and begrudgingly open the refrigerator, but alas there doesn't seem to be a coherent yet delicious meal in front of you. 
+            </p>  
+          <h2>That's where we come into the picture!</h2>
+          <p>
+            Fridge Raider is a service that allows you to load in a random assortment of fridge items: those 4 eggs, the onions, maybe the
+            leftover ham, and in return shoots out a helpful recipe for an interesting meal everytime!
+          </p>
+          <h3>Don't forget the drinks!</h3>
+          <p>All of that stress over what to eat has made you crave an adult beverage. Why not have a go at the random drink button? Each time you click <strong>"Get Drink"</strong>, it will give you a random and tasty drink to mellow out your overworked mind. &#128522</p>
       </div>
 
     </section>
 
 
-  <div class="container">
+  <div id="food" class="container ">
     <section class="container box">
       <input class="text" id="text-input" placeholder="Add Ingredients Here!">
       <button type="submit" id="search-btn" class="button is-danger">Search</button>
@@ -96,12 +89,9 @@
         <button type="reset" id="clear-btn" class="button is-dark fas fa-trash">Clear</button>
         </section>
     </section>
-    
-
-    
 
     </li>
-    <section class="container box">
+    <section id="drink" class="container box">
       <button type="submit" id="random-btn" class="button is-info">Get Drink</button>       
     </section>
     <section class="container box">
@@ -113,12 +103,12 @@
   </div>
 
     <!-- Hero footer: will stick at the bottom -->
-    <div class="hero-foot">
-      <nav class="tabs is-boxed is-fullwidth">
+    <div id="footer" class="footer has-background-warning">
+      <nav class="tabs is-boxed is-centered">
         <div class="container">
           <ul>    
-            <li class="is-active"><a href="https://github.com/Jamesbmahoney">Jame's Github</a></li>
-            <li class="is-active"><a href="https://github.com/RussellShea">Russell's Github</a></li>
+            <li class="is-active"><a href ="https://github.com/Jamesbmahoney" target="_blank">Jame's Github</a></li>
+            <li class="is-active"><a href="https://github.com/RussellShea" target="_blank">Russell's Github</a></li>
           </ul>
         </div>
       </nav>
@@ -127,6 +117,7 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="assets/script.js" ></script>
+
 </body>
 
 </html>

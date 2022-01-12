@@ -3,25 +3,32 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Fridge-Raider</title>
+  <style>
+    body {
+      background: url("assets/images/nutrition-section-4-background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }
+  </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-  
-
-</head>
+  </head>
 
 <body>
-  <section class="hero is-warning is-fullheight is-uppercase is-family-code">
+  <section class="hero is-fullheight is-uppercase is-family-code">
     <!-- Hero head: will stick at the top -->
     <div class="hero-head mb-6">
       <header class="navbar has-background-warning is-fixed-top ">
         <div class="container column">
           <div class="navbar-brand">
             <a class="navbar-item">
-              <img src="assets/images/dropshadowpacman.png" alt="pacman gobbling goodies">
+              <img src="assets/images/dropshadowpacman.png" alt="pacman gobbling goodies"><strong class="has-text-warning-dark">FRIDGE-RAIDER</strong>
             </a>
             <span class="navbar-burger" data-target="navbarMenuHeroC">
               <span></span>
@@ -38,7 +45,7 @@
                 <a href="#drink"><strong class=" has-text-info">Liquids &#127865</strong></a>
                 </a> 
                 <a class="navbar-item">
-                  <a href="#footer"><strong>Github <i class="fab fa-github"></i></strong></a>
+                  <a href="#footer"><strong class="has-text-dark">Github <i class="fab fa-github"></i></strong></a>
                 </a>
               </span>              
             </div>
@@ -48,10 +55,10 @@
     </div>
 
     <!-- Hero content: will be in the middle -->
-    <div class="hero-body">
+    <div class="hero-body m-6">
       <div class="container has-text-centered">
-        <p class="title is-uppercase is-family-code has-text-warning-dark">
-          <strong>Fridge Raider</strong>
+        <p class="title is-uppercase is-size-1 is-family-code has-text-warning-dark">
+          <strong>Fridge-Raider</strong>
         </p>
         <p class="subtitle is-uppercase is-family-code">
           Because Takeout Was So 2021...
@@ -69,47 +76,49 @@
             </p>  
           <h2>That's where we come into the picture!</h2>
           <p>
-            Fridge Raider is a service that allows you to load in a random assortment of fridge items: those 4 eggs, the onions, maybe the
+            Fridge-Raider&trade; is a service that allows you to load in a random assortment of fridge items: those 4 eggs, the onions, maybe the
             leftover ham, and in return shoots out a helpful recipe for an interesting meal everytime!
           </p>
           <h3>Don't forget the drinks!</h3>
           <p>All of that stress over what to eat has made you crave an adult beverage. Why not have a go at the random drink button? Each time you click <strong>"Get Drink"</strong>, it will give you a random and tasty drink to mellow out your overworked mind. &#128522</p>
       </div>
-
     </section>
 
 
   <div id="food" class="container has-background-warning-light ">
-      <h1 class="is-centered is-bold">Search Your Solids</h1>
-    <section class="container box has-background-warning-light">
+      <h1 class="has-text-centered">Search Your Solids</h1>
+    <section class="container box has-background-warning-light is-centered">
       <input class="text is-family-code" id="text-input" placeholder="Add Ingredients Here!">
-      <button type="submit" id="search-btn" class="button is-danger is-family-code">Search!</button>
-        <section id="recipe-content" class="flex-row justify-space-between mx-3">
+      <button type="submit" id="search-btn" class="button is-danger is-family-code has-text-centered">SEARCH! &#128269</button>
+        <section id="recipe-content" class="flex-row justify-space-between mx-3 is-centered">
         <ul class="card-content" id="search-list">              
         </ul>
-        <button type="reset" id="clear-btn" class="button is-dark fas fa-trash">Clear</button>
+      </li>
+        <button type="reset" id="clear-btn" class="button is-dark fas fa-trash has-text-centered ">CLEAR</button>
         </section>
     </section>
+  </div>
 
-    </li>
-    <section id="drink" class="container has-background-warning-light box">
-      <button type="submit" id="random-btn" class="button is-info">Get Drink</button>       
+    
+    <section id="drink" class="container  has-background-warning-light box mt-4 mb-4">
+      <button type="submit" id="random-btn" class="button is-info is-family-code is-centered has-text-centered" >GET DRINK &#127922</button>       
     </section>
-    <section class="container has-background-warning-light box">
-    <div id="cocktail-name"></div>
-      <image id="cocktail-img" src="assets/images/drinks-2578446_960_720.jpg" width="200" height="200" ></image>
+    <section class="container has-background-warning-light box mb-6 ">
+    <div class="is-centered" id="cocktail-name"></div>
+      <image class="is-centered" id="cocktail-img" src="assets/images/drinks-2578446_960_720.jpg" width="600" height="600"> </image>
       <div id="cocktail-ingr"></div>
       <div id="cocktail-inst"></div>
     </section>       
   </div>
-
-    <!-- Hero footer: will stick at the bottom -->
-    <div id="footer" class="footer has-background-warning">
+  
+  
+  <!-- Hero footer: will stick at the bottom -->
+  <div id="footer" class="footer navbar  pb-1 pt-0 has-background-warning">
       <nav class="tabs is-boxed is-centered">
         <div class="container">
           <ul>    
-            <li class="is-active"><a href ="https://github.com/Jamesbmahoney" target="_blank">Jame's Github</a></li>
-            <li class="is-active"><a href="https://github.com/RussellShea" target="_blank">Russell's Github</a></li>
+            <li class="navbar-item"><a href ="https://github.com/Jamesbmahoney" target="_blank">Jame's Github</a></li>
+            <li class="navbar-item"><a href="https://github.com/RussellShea" target="_blank">Russell's Github</a></li>
           </ul>
         </div>
       </nav>

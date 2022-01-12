@@ -73,23 +73,18 @@ function displayRecipe(recipeInfo) {
         var recipeImage = recipeInfo[i].image;
         var recipeName = recipeInfo[i].title;
         var recipeId = recipeInfo[i].id;
+        
+        var apiUrl = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=62e75e598b60470591e3fd45554b92ca&includeNutrition=false"
+        fetch(apiUrl)
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (data) {
+                        console.log(data);
 
-        console.log(recipeImage, recipeName, recipeId);
-
-        getRecipeId(recipeId);
-
-        function getRecipeId(recipeId) {
-            var apiUrl = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=62e75e598b60470591e3fd45554b92ca&includeNutrition=false"
-            fetch(apiUrl)
-                .then(function (response) {
-                    if (response.ok) {
-                        response.json().then(function (data) {
-                            console.log(data);
-
-                        })
-                    }
-                })
-        }
+                        console.log(recipeImage, recipeName, recipeId);
+                    })
+                }
+            })       
     }
 }
 
@@ -103,11 +98,14 @@ function getDrink() {
 
                     var cocktailName = data.drinks[0].strDrink;
                     var cocktailThumb = data.drinks[0].strDrinkThumb;
-                    var cocktailIngr = data.drinks[0].strIngredient1 + "\n"
-                        + data.drinks[0].strIngredient2 + "\n"
-                        + data.drinks[0].strIngredient3 + "\n"
-                        + data.drinks[0].strIngredient4 + "\n"
-                        + data.drinks[0].strIngredient5 + "\n";
+                    var cocktailIngr = "";
+                    for (var i = 1; i < 15; i++) {
+
+                        var currentIngr = "strIngredient" + i
+                        var completeIngr = data.drinks[0][currentIngr]
+                        if (completeIngr !== null) cocktailIngr += `${completeIngr}\n`
+                    }
+
                     var cocktailInst = data.drinks[0].strInstructions;
 
                     console.log(cocktailName, cocktailThumb, cocktailIngr, cocktailInst);
@@ -116,7 +114,6 @@ function getDrink() {
                     document.getElementById("cocktail-img").src = cocktailThumb;
                     document.getElementById("cocktail-ingr").textContent = cocktailIngr;
                     document.getElementById("cocktail-inst").textContent = cocktailInst;
-
                 })
             }
         })

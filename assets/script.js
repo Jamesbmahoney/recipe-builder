@@ -33,7 +33,7 @@ $("#clear-btn").on("click", function (event) {
     listArray();
 
     $(this).addClass("hide");
-})
+});
 
 searchListEl.on("click", "li.card", function (event) {
     event.preventDefault();
@@ -49,11 +49,11 @@ $("#random-btn").on("click", function (event) {
     event.preventDefault();
 
     getDrink();
-})
+});
 
 
 function getRecipe(ingredients) {
-    var apiUrl = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=62e75e598b60470591e3fd45554b92ca&ingredients=" + ingredients + "&ranking=1&ignorePantry=true";
+    var apiUrl = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=19faeb981d79466fa2688c9703593efa&ingredients=" + ingredients + "&ranking=1&ignorePantry=true&number=1&includeIngredients";
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
@@ -61,32 +61,41 @@ function getRecipe(ingredients) {
                     console.log(data);
 
                     displayRecipe(data);
-
                 })
+
+                function displayRecipe(recipeInfo) {
+                    for (var i = 0; i < recipeInfo.length; i++) {
+
+                        var recipeImage = recipeInfo[i].image;
+                        var recipeName = recipeInfo[i].title;
+                        var recipeId = recipeInfo[i].id;
+                    }
+
+                    var apiUrl = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=19faeb981d79466fa2688c9703593efa&includeNutrition=false"
+                    fetch(apiUrl)
+                        .then(function (response) {
+                            if (response.ok) {
+                                response.json().then(function (data) {
+                                    console.log(data);
+
+                                    var recipeUrl = data.sourceUrl;
+                                    console.log(recipeImage, recipeName, recipeUrl);
+
+                                    document.getElementById("recipe-name").textContent = recipeName;
+                                    document.getElementById("recipe-img").src = recipeImage;
+                                    document.getElementById("recipe-url").href = recipeUrl;
+                                })
+                            }
+                        })
+                }
             }
         })
-}
+};
 
-function displayRecipe(recipeInfo) {
-    for (var i = 0; i < recipeInfo.length; i++) {
 
-        var recipeImage = recipeInfo[i].image;
-        var recipeName = recipeInfo[i].title;
-        var recipeId = recipeInfo[i].id;
-        
-        var apiUrl = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=62e75e598b60470591e3fd45554b92ca&includeNutrition=false"
-        fetch(apiUrl)
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (data) {
-                        console.log(data);
 
-                        console.log(recipeImage, recipeName, recipeId);
-                    })
-                }
-            })       
-    }
-}
+
+
 
 function getDrink() {
     var apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php?apiKey=1";
@@ -117,7 +126,7 @@ function getDrink() {
                 })
             }
         })
-}
+};
 
 function recipeHistory(ingredients) {
     if (ingredients) {
@@ -138,8 +147,7 @@ function recipeHistory(ingredients) {
             recipeContentEl.removeClass("hide");
         }
     }
-
-}
+};
 
 function listArray() {
     searchListEl.empty();
@@ -151,7 +159,7 @@ function listArray() {
     });
 
     localStorage.setItem("recipes", JSON.stringify(recipeList));
-}
+};
 
 
 function initList() {
@@ -166,10 +174,10 @@ function initList() {
             recipeContentEl.removeClass("hide");
         }
     }
-}
+};
 
 function clearButton() {
     if (searchListEl.text() !== "") {
         clearBtnEl.removeClass("hide");
     }
-}
+};

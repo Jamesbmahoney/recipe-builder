@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8">
     <title>Fridge-Raider</title>
     <style>
       body {
         background: url("assets/images/nutrition-section-4-background.jpg") no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      }
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-        crossorigin="anonymous"
-      />
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"/>
   </head>
 
 <body class= "is-uppercase is-family-code">   
@@ -86,39 +84,42 @@
     </section>
 
 
-    <div id="food" class="container has-background-warning-light ">
-        <h1 class="has-text-centered">Search Your Solids</h1>
-      <section class="container box has-background-warning-light is-centered">
-        <input class="text is-family-code" id="text-input" placeholder="Add Ingredients Here!">
-        <button type="submit" id="search-btn" class="button is-danger is-family-code has-text-centered">SEARCH! &#128269</button>
-          <section id="recipe-content" class="flex-row justify-space-between mx-3 is-centered">
-          <ul class="card-content" id="search-list">              
-          </ul>
-        </li>
-          <button type="reset" id="clear-btn" class="button is-dark fas fa-trash has-text-centered ">CLEAR</button>
-          </section>
-      </section>
-    </div>
-
+  <div id="food" class="container ">
+    <section class="container box">
+      <input class="text is-uppercase is-family-code" id="text-input" placeholder="Add Ingredients Here!">
+      <button type="submit" id="search-btn" class="button is-danger is-family-code">SEARCH 🔍</button>
+        <section id="recipe-content" class="flex-row justify-space-between mx-3">
+        <ul class="card-content" id="search-list">              
+        </ul>
+        <button type="reset" id="clear-btn" class="button is-dark fas fa-trash">CLEAR</button>
+        </section>
+    </section>
+    <section class="container box">
+      <div id="recipe-name"></div>
+        <image id="recipe-img" src="assets/images/0_iS8em2LEL14ipIX0.jpg" width="200" height="200" ></image>
+        <div>
+          <a href="https://www.google.com" target="_blank" id="recipe-url">Click Here For Recipe!</a>
+          </div>        
+      </section>          
+  </div>  
     
       <section id="drink" class="container  has-background-warning-light box mt-4 mb-4">
         <button type="submit" id="random-btn" class="button is-info is-family-code is-centered has-text-centered" >GET DRINK &#127922</button>       
       </section>
       <section class="container has-background-warning-light box mb-6 ">
       <div class="is-centered" id="cocktail-name"></div>
-        <image class="is-centered" id="cocktail-img" src="assets/images/drinks-2578446_960_720.jpg" width="800" height="800"> </image>
+        <image class="is-centered" id="cocktail-img" src="assets/images/drinks-2578446_960_720.jpg" width="400" height="400"> </image>
         <div id="cocktail-ingr"></div>
         <div id="cocktail-inst"></div>
       </section>       
-    </div>
-    
+    </div>    
   
     <!-- Hero footer: will stick at the bottom -->
     <div id="footer" class="footer navbar  pb-1 pt-0 has-background-warning">
         <nav class="tabs is-boxed is-centered">
           <div class="container">
             <ul>    
-              <li class="navbar-item"><a href ="https://github.com/Jamesbmahoney" target="_blank">Jame's Github</a></li>
+              <li class="navbar-item"><a href ="https://github.com/Jamesbmahoney" target="_blank">James' Github</a></li>
               <li class="navbar-item"><a href="https://github.com/RussellShea" target="_blank">Russell's Github</a></li>
             </ul>
           </div>

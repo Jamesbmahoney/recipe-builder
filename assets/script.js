@@ -109,9 +109,7 @@ function getDrink() {
                         if (completeIngr !== null) cocktailIngr += `${completeIngr}\n`
                     }
 
-                    var cocktailInst = data.drinks[0].strInstructions;
-
-                    console.log(cocktailName, cocktailThumb, cocktailIngr, cocktailInst);
+                    var cocktailInst = data.drinks[0].strInstructions;                    
 
                     document.getElementById("cocktail-name").textContent = cocktailName;
                     document.getElementById("cocktail-img").src = cocktailThumb;

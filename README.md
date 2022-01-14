@@ -12,8 +12,9 @@ HTML and Javascript ingredient searching applicaiton.  Using JQuery, Bulma and m
 
 ## Deployed Website
 
+https://jamesbmahoney.github.io/recipe-builder/
+
 ## Demo
 
 ![food-gif](https://github.com/Jamesbmahoney/recipe-builder/blob/main/assets/images/food-gif.gif)
 
-https://jamesbmahoney.github.io/recipe-builder/

@@ -14,6 +14,6 @@ HTML and Javascript ingredient searching applicaiton.  Using JQuery, Bulma and m
 
 ## Images
 
-
+![](food-gif.gif)
 
 https://jamesbmahoney.github.io/recipe-builder/

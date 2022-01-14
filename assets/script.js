@@ -56,7 +56,7 @@ function getRecipe(ingredients) {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {                 
-
+                    
                     displayRecipe(data);
                 })
 
@@ -73,12 +73,14 @@ function getRecipe(ingredients) {
                         .then(function (response) {
                             if (response.ok) {
                                 response.json().then(function (data) {                                    
-
-                                    var recipeUrl = data.sourceUrl;                                    
+                                    console.log(data);
+                                    var recipeUrl = data.sourceUrl;
+                                    var winePairing = data.winePairing.pairingText;                                    
 
                                     document.getElementById("recipe-name").textContent = recipeName;
                                     document.getElementById("recipe-img").src = recipeImage;
                                     document.getElementById("recipe-url").href = recipeUrl;
+                                    document.getElementById("wine-pairing").textContent = winePairing;
                                 })
                             }
                         })
